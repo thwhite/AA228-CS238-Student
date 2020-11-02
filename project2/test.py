@@ -1,6 +1,6 @@
-import epsilon_greedy
 import update_model
 import update_value_function
+from formMDP import formMDP
 from MaxLiklihoodMDP import MaxLiklihoodMDP
 import numpy as np
 import csv
@@ -31,6 +31,7 @@ for data_point in small_data:
     R[s-1, a-1] += r
 
 small_model = MaxLiklihoodMDP(S, A, N, R, 0.95, V)
+small_mdp = formMDP(small_model)
 
 s = 1 # pick starting state
 

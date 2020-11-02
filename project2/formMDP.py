@@ -1,9 +1,9 @@
 import numpy as np
-import MDP
+from MDP import MDP
 
 def formMDP(model):
     [N, r, S, A, Gamma] = [model.N, model.r, model.s, model.a, model.gamma]
-    [T, R] = np.full_like(N), np.full_like(R)
+    [T, R] = np.full_like(N), np.full_like(r)
     for s in S:
         for a in A:
             n = sum(N[s, a, :])

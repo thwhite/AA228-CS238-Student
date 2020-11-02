@@ -47,6 +47,7 @@ REV2 FUNCTIONAL OUTLINE
 
 REV3 FUNCTIONAL OUTLINE
 - um shit so i was wrong about how this works
+- we still need to output a deterministic policy, but now it's a normal-ass search problem
 
 TODO:
 
