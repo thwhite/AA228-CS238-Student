@@ -39,3 +39,4 @@ pi = np.full(shape=100, fill_value=1)
 
 max_iter = 1000
 pi = policy_iter_solve(pi, small_mdp, max_iter)
+print(pi)
