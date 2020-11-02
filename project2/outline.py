@@ -25,7 +25,7 @@ Steps:
 
 
 
-ACTUAL FUNCTIONAL OUTLINE
+REV1 FUNCTIONAL OUTLINE
 
 - Data structure for the problem type. Imports all the stuff from the places.
 - Epsilon-Greedy Function
@@ -36,6 +36,29 @@ ACTUAL FUNCTIONAL OUTLINE
 - Full update - updates the value function
 
 
+REV2 FUNCTIONAL OUTLINE
+
+- Model. Data structure for the MDP - holds info on currently understood problem formulation.
+- Test: imports data, declares classes, and does stuff
+    - Calls: epsilon-greedy to take an exploration step
+        - Calls: lookahead to find the greedy step
+    - Calls: update_model the model to incorporate the new facts.
+    - Calls: update_value_function the value function
+
+TODO:
+
+Milestones:
+
+- Deal with how to prevent it from going over the edges
 
 
+
+- Figure out the exact state function
+- Figure out what an MDP class is and if I need it as distinct from the partial one
+
+
+Then:
+- Try to run all three types of code with this and see what happens.
+- Submit a readme with those answers *before I go to sleep tonight*.
+- See what score I get with that! If it's good enough, yay! If not, I have five hours tomorrow to figure it out.
 """
