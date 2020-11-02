@@ -46,8 +46,8 @@ REV2 FUNCTIONAL OUTLINE
     - Calls: update_value_function the value function
 
 REV3 FUNCTIONAL OUTLINE
-- um shit so i was wrong about how this works
-- we still need to output a deterministic policy, but now it's a normal-ass search problem
+- transform the given data into a state transition function
+- go from MDP formulation to calculated solution. start with straight-up policy iteration for tonight.
 
 TODO:
 

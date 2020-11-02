@@ -8,5 +8,5 @@ class MaxLiklihoodMDP:
         self.discount = gamma # this is a value that we import
         self.value_funct = v
         self.transition_funct = T
-        self.reward_function = R
+        self.reward_funct = R
 

@@ -35,7 +35,7 @@ small_mdp = MaxLiklihoodMDP(S, A, N, R, 0.95, V, 0, 0)
 formMDP(small_mdp)
 
 # Policy Iteration to Find Optimal Policy
-pi = np.empty(shape=(100, 4))
+pi = np.full(shape=100, fill_value=1)
 
 max_iter = 1000
 pi = policy_iter_solve(pi, small_mdp, max_iter)
