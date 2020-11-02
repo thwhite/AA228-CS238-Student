@@ -15,21 +15,21 @@ with open('data/small.csv') as csv_file:
 
 
 # Declare the data inputs
-S = range(1,100)
-A = [1, 2, 3, 4]
+S = range(0, 99)
+A = [0, 1, 2, 3]
 N = np.empty(shape=(100, 4, 100))
 R = np.empty(shape=(100, 4))
 V = []
 
 # Fill up the transition and reward functions
 for data_point in small_data:
-    s = int(data_point[0])
-    a = int(data_point[1])
+    s = int(data_point[0]) - 1
+    a = int(data_point[1]) - 1
     r = int(data_point[2])
-    sp = int(data_point[3])
+    sp = int(data_point[3]) - 1
     # calculate
-    N[s-1, a-1, sp-1] += 1
-    R[s-1, a-1] += r
+    N[s, a, sp] += 1
+    R[s, a] += r
 
 small_mdp = MaxLiklihoodMDP(S, A, N, R, 0.95, V, 0, 0)
 formMDP(small_mdp)

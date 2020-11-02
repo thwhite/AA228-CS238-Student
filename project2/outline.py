@@ -24,6 +24,9 @@ Steps:
     - We'll figure this out later.
 
 
+HOW THE SHIT DOES INDEXING WORK
+
+
 
 REV1 FUNCTIONAL OUTLINE
 
@@ -49,16 +52,13 @@ REV3 FUNCTIONAL OUTLINE
 - transform the given data into a state transition function
 - go from MDP formulation to calculated solution. start with straight-up policy iteration for tonight.
 
+
+
 TODO:
-
-Milestones:
-
-- Deal with how to prevent it from going over the edges
-
-
-
-- Figure out the exact state function
-- Figure out what an MDP class is and if I need it as distinct from the partial one
+- Figure out how the indexing should work
+- Keep functional debugging for bit
+- Get a policy returned
+- See if it has a non-negative score
 
 
 Then:

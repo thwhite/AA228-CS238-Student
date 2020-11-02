@@ -6,17 +6,17 @@ def policy_iter_solve(pi, MDP, max_k):
         U = policy_eval(MDP, pi)
         pip = []
         for s in pi:
-            pip[s] = greedy(MDP, U, s)
-        if pi == pi:
+            pip.append(greedy(MDP, U, s)[1])
+        if np.array_equal(pi, pip):
             break
         pi = pip
 
 def policy_eval(MDP, pi):
     S, T, R, g = MDP.state_space, MDP.transition_funct, MDP.reward_funct, MDP.discount
-    n = 100
+    n = len(S)
     Rp = [0] * n
     Tp = np.empty(shape=(n, n))
-    for s in Rp:
+    for s in S:
         Rp[s] = R[s, pi[s]]
     for s in S:
         for sp in S:
@@ -27,14 +27,15 @@ def lookahead(MDP, U, s, a):
     S, T, R, g, V = MDP.state_space, MDP.transition_funct, MDP.reward_funct, MDP.discount, U
     ahead = [0] * len(S)
     for sp in S:
-        ahead[sp-1] = T[s-1, a-1, sp-1]*V[sp-1]
+        ahead[sp] = T[s, a, sp]*V[sp]
+    print(ahead)
     return R[s, a] + g * sum(ahead)
 
 def greedy(MDP, U, s):
     A = MDP.action_space
     val = []
     for a in A:
-        val[a-1] = lookahead(MDP, U, s, a)
+        val.append(lookahead(MDP, U, s, a))
     max = np.amax(val)
-    max_action = np.where(max)
+    max_action = np.where(max)[0][0]
     return max, max_action
