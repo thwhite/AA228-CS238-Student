@@ -2,11 +2,12 @@ import update_model
 import update_value_function
 from formMDP import formMDP
 from MaxLiklihoodMDP import MaxLiklihoodMDP
+from policy_iter_solve import policy_iter_solve
 import numpy as np
 import csv
 
 
-# INIT ALL OF THE VALUES FROM DATA STRUCTURE
+# Init Values from Data Structure
 with open('data/small.csv') as csv_file:
     small_reader = csv.reader(csv_file, delimiter=',')
     small_data = list(small_reader)
@@ -30,10 +31,11 @@ for data_point in small_data:
     N[s-1, a-1, sp-1] += 1
     R[s-1, a-1] += r
 
-small_model = MaxLiklihoodMDP(S, A, N, R, 0.95, V)
-small_mdp = formMDP(small_model)
+small_mdp = MaxLiklihoodMDP(S, A, N, R, 0.95, V, 0, 0)
+formMDP(small_mdp)
 
-s = 1 # pick starting state
+# Policy Iteration to Find Optimal Policy
+pi = np.empty(shape=(100, 4))
 
-# for i in range(5):
-#     update_model()
+max_iter = 1000
+pi = policy_iter_solve(pi, small_mdp, max_iter)
