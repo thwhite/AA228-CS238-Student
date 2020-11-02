@@ -45,6 +45,9 @@ REV2 FUNCTIONAL OUTLINE
     - Calls: update_model the model to incorporate the new facts.
     - Calls: update_value_function the value function
 
+REV3 FUNCTIONAL OUTLINE
+- um shit so i was wrong about how this works
+
 TODO:
 
 Milestones:
