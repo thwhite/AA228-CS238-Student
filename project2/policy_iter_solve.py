@@ -3,15 +3,14 @@ import numpy as np
 
 
 def policy_iter_solve(pi, MDP, max_k):
+    S = MDP.state_space
     for k in range(1, max_k):
         U = policy_eval(MDP, pi)
-        pip = np.empty(shape=len(pi))
-        for s in pi:
-            print(greedy(MDP, U, s)[1])
-            pip[s] = greedy(MDP, U, s)[1]
-        if np.array_equal(pi, pip):
+        pip = [0] * len(pi)
+        for s in S:
+            pip[s] = greedy(MDP, U, s)
+        if pi == pip:
             break
-        print(pip)
         pi = pip
     return pi
 
@@ -31,12 +30,10 @@ def policy_eval(MDP, pi):
 
 def lookahead(MDP, U, s, a):
     S, T, R, g, V = MDP.state_space, MDP.transition_funct, MDP.reward_funct, MDP.discount, U
-    ahead = [0] * len(S)
+    ahead = 0
     for sp in S:
-        # print(T[s, a, sp])
-        # print(V[sp])
         ahead += T[s, a, sp]*V[sp]
-    return R[s, a] + g * sum(ahead)
+    return R[s, a] + g * ahead
 
 
 def greedy(MDP, U, s):
@@ -44,6 +41,5 @@ def greedy(MDP, U, s):
     val = []
     for a in A:
         val.append(lookahead(MDP, U, s, a))
-    max = np.amax(val)
-    max_action = np.where(max)[0][0]
-    return max, max_action
+    return val.index(max(val)) #if a tie happens, this still only returns one value
+
