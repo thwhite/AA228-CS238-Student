@@ -37,10 +37,15 @@ formMDP(small_mdp)
 # Policy Iteration to Find Optimal Policy
 pi = [0] * 100
 
-max_iter = 10
+max_iter = 100
 pi = policy_iter_solve(pi, small_mdp, max_iter)
 print("yay!")
 print("The final, optimal policy is: ", pi)
-with open("small_policy", "w") as f:
-    f.write(str(pi))
+
+# Upload to file
+
+pi = [p + 1 for p in pi] # reformat for submission
+with open("small_policy.txt", "w") as f:
+    for p in pi:
+        f.write(str(p) + "\n")
     f.close()
