@@ -9,4 +9,5 @@ class MaxLiklihoodMDP:
         self.value_funct = v
         self.transition_funct = T
         self.reward_funct = R
+        self.state_data = 0
 
