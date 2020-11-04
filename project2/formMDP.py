@@ -1,5 +1,4 @@
 import numpy as np
-from MDP import MDP
 
 def formMDP(MDP):
     [N, r, S, A] = [MDP.transition_count, MDP.reward_sum, MDP.state_space, MDP.action_space]

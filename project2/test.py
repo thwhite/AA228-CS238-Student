@@ -1,5 +1,3 @@
-import update_model
-import update_value_function
 from formMDP import formMDP
 from MaxLiklihoodMDP import MaxLiklihoodMDP
 from policy_iter_solve import policy_iter_solve
